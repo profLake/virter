@@ -1,0 +1,171 @@
+/*Copyright 1989 Free Software Foundation*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define ERR_MSG "n/a"
+#define NMAX 10
+
+int* get_ints_before_max_secured(int* p_buff, int* p_len, int max);
+int* sort_ints(int* nums, int n);
+int str_find_symb_id(char* str, char symb);
+void ints_output(int* a, int n);
+int* str_to_int_secured(char* str, int* p_num);
+int int_len(int num);
+
+int main() {
+    /*
+    printf("int_len(16): %d\n", int_len(16));
+    printf("int_len(-6): %d\n", int_len(-6));
+    printf("int_len(6): %d\n", int_len(6));
+
+
+    char* my_str = "115 116";
+
+    int my_num;
+    char my_new_str[50];
+    strncpy(my_new_str, my_str, int_len(115));
+    printf("my_new_str: _%s_\n", my_new_str);
+
+
+    int* result = str_to_int_secured(my_new_str, &my_num);
+    if (result) {
+        printf("result: %d\n", *result);
+    } else {
+        printf("NULL\n");
+    }
+
+    return 0;
+    */
+
+    
+
+
+
+    int result = 0;
+
+    int nums[NMAX];
+    int len = NMAX;
+
+    if (get_ints_before_max_secured(nums, &len, NMAX) == NULL) {
+        puts("n/a");
+        result = 1;
+    }
+
+    if (result == 0) {
+        // ints_output(sort_ints(nums, len), len);
+        ints_output(nums, len);
+    }
+
+    return result;
+}
+int* get_ints_before_max_secured(int* p_buff, int* p_len, int max) {
+    int* result = p_buff;
+
+    char buff1[1000];
+    *p_buff = 0;
+    gets(buff1);
+
+    if ((buff1[0] >= '0' && buff1[0] <= '9') == 0) {
+        result = NULL;
+    }
+
+    int i = 0;
+    if (result) {
+        for (; i < max; i++) {
+            int the_num;
+            int* result_num = str_to_int_secured(buff1, &the_num);
+            if (result_num == NULL) {
+                result = NULL;
+                break;
+            } else {
+                p_buff[i] = the_num;
+                buff1 += int_len(the_num);
+                if (*buff && *buff != ' ') {
+                    result = NULL;
+                    break;
+                } else {
+                    (*p_len)++;
+                }
+            }
+        }
+    }
+    if (result) {
+        if (i != max)
+            result = NULL;
+    }
+
+    return result;
+}
+char* str_copy_n(const char* str, char* p_buff, int len) {
+    int i = 0;
+    for (; i < len; i++) {
+        p_buff[i] = str[i];
+    }
+    p_buff[i] = '\0';
+    return p_buff;
+}
+int str_find_symb_id(char* str, char symb) {
+    int result = -1;
+    int i = 0;
+    for (; str[i]; i++) {
+        if (str[i] == symb) {
+            result = i;
+            break;
+        }
+    }
+    return result;
+}
+/*
+int* sort_ints_alloc(const int* nums, int n) {
+    int* result = calloc(n, sizeof(int));
+    for (int a = 0; a < n; a++) {
+        for (int b = a; b < n; b++) {
+            if (nums[a] > nums[b]) {
+                int buff = nums[a];
+                nums[a] = nums[b];
+                nums[b] = buff;
+            }
+        }
+    }
+    return result;
+}
+*/
+void ints_output(int *a, int n) {
+    if (n != 0) {
+        printf("%d", a[0]);
+        for (int i = 1; i < n; i++) {
+            printf(" %d", a[i]);
+        }
+    }
+}
+/*
+int* copy_ints_alloc(const int* nums, int len) {
+}
+*/
+int* str_to_int_secured(char* str, int* p_num) {
+    int i = 0;
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    for (; str[i]; i++) {
+        if (str[i] >= '0' && str[i] <= '9')
+            continue;
+        else
+            return NULL;
+    }
+    sscanf(str, "%i", p_num);
+    return p_num;
+}
+int int_len(int num) {
+    int result = 1;
+    if (num < 0) {
+        result++;
+        num = -num;
+    }
+    while (num > 9) {
+        result++;
+        num /= 10;
+    }
+    return result;
+}
