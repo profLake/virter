@@ -1,11 +1,24 @@
 #!/bin/bash
 
+
+##
+## check-compile.sh <work_dir> <make_target>
+##
+
+
+
+bash ~/sandbox/clean.sh
+
 #for f in $WORK_DIR/*.c; do
 #    gcc -Wall -Wextra -Werror $f -o ./binaries/$(basename ${f%.c})
 #done
 
-cd $WORK_DIR/
-make $1
+
+
+####cd $WORK_DIR/
+cd $1
+make $2
+
 
 echo "----------------"
 echo "COMPILATION DONE"

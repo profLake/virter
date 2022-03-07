@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm ~/sandbox/binaries/*
+rm -f ~/sandbox/binaries/*

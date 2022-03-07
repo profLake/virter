@@ -1,12 +1,17 @@
 #!/bin/bash
 
 
-#cd ~/sandbox/
-#echo "PROJECT: $PROJECT"
-#echo "WORK_DIR: $WORK_DIR"
+##
+## check-cppcheck.sh <work_dir>
+##
 
 
-~/cppcheck/cppcheck --enable=all --suppress=missingIncludeSystem $WORK_DIR/
+work_dir=$1
+
+
+~/cppcheck/cppcheck --enable=all --suppress=missingIncludeSystem $work_dir/
+
+
 echo "----------------"
 echo "CPPCHECK CHECK DONE"
 echo "----------------"
