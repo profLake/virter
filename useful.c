@@ -11,6 +11,7 @@
  *  It can receive numbers that are separetd by ' '.
  */
 int* get_int_secured(int* p_num);
+    int* get_int(int* buff);
     /*
      * args:
      *  n --- if it contains -1, user himself must input desired amount
@@ -35,6 +36,12 @@ int* get_int_secured(int* p_num);
 
 int input(double* data, int* p_n);
     void output(double* data, int n);
+    /*
+     *  char stdin_skip_symbols(char stop) {
+     *      returns:
+     *          char from stop or EOF
+     */
+    void stdin_skip_symbols(char stop);
 
 /*
  *  int* str_to_int_secured(char* str, int* p_num);
@@ -507,6 +514,16 @@ void output(double* data, int n) {
             }
         }
     }
+}
+int* get_int(int* buff) {
+    int* result = buff;
+    if (scanf("%d", &buff) != 1) {
+        result = NULL;
+    }
+    return result;
+}
+void stdin_skip_symbols(char stop) {
+    while (getc(stdin) != stop);
 }
 
 

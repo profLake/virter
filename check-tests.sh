@@ -27,13 +27,16 @@ for program in $project/build/*; do
     && for file_text in ./x*; do
         id=$(cat $file_text | grep -n "output:" | cut -d: -f1)
         input=$(sed -n "3,$((id - 1))p" $file_text)
-        expect=$(sed -n "$((id + 1)),$ p;s/.$//" $file_text)
-        output=$(echo $input | $project/build/$program_name)
-    
-
         echo "########INPUT:"
         echo "<$input>"
 
+        expect=$(sed -n "$((id + 1)),$ p;s/.$//" $file_text)
+
+        dir_saved2=$(pwd)
+        cd $project/build/
+        output=$(echo $input | $project/build/$program_name)
+        cd $dir_saved2
+    
         echo -n "########STATUS:"
         if [[ $output == $expect ]]; then
             echo "[ OK ]"
