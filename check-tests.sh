@@ -14,25 +14,21 @@ dir_saved=$(pwd)
 
 
 cd ~/sandbox/
-for program_full_name in $project/build/*; do
-    program=$(basename $program_full_name)
+for program in $project/build/*; do
+    program_name=$(basename $program)
     echo "====================================="
     echo "====================================="
     echo "########PROGRAM:$program"
 
     cd tests-data/$project_name/
-    #echo "##################################################"
-    #echo "project:$project"
-    #echo "pwd:$(pwd)"
-    #echo "##################################################"
     
-    split -p "[=]" "./tests-$program.txt" \
+    split -p "[=]" "./tests-$program_name.txt" \
     \
     && for file_text in ./x*; do
         id=$(cat $file_text | grep -n "output:" | cut -d: -f1)
         input=$(sed -n "3,$((id - 1))p" $file_text)
         expect=$(sed -n "$((id + 1)),$ p;s/.$//" $file_text)
-        output=$(echo $input | $project/build/$program)
+        output=$(echo $input | $project/build/$program_name)
     
 
         echo "########INPUT:"
@@ -49,7 +45,7 @@ for program_full_name in $project/build/*; do
     
 
         echo -n "########LEAK: "
-            (echo $input | leaks -atExit -- ~/sandbox/binaries/$program)\
+            (echo $input | leaks -atExit -- $program)\
                 > /tmp/error.txt
         if [[ -n $(cat /tmp/error.txt | grep LEAK) ]]; then
            echo "YES"
