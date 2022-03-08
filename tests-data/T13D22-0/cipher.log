@@ -1,0 +1,44 @@
+: Log file was not present, using default name: "text.txt" doesn't exist: Log file was not present, using default name
+: "text.txt" doesn't exist
+: Log file was not present, using default name
+: "text.txt" doesn't exist
+: Log file was not present, using default name
+: "text.txt" doesn't exist
+[WARNING] 11: 8:16: Log file was not present, using default name
+[ INFO  ] 11: 8:16: "text.txt" doesn't exist
+[WARNING] 11: 8:31: Log file was not present, using default name
+[ INFO  ] 11: 8:31: "text.txt" doesn't exist
+[WARNING] 11:08:48: Log file was not present, using default name
+[ INFO  ] 11:08:48: "text.txt" doesn't exist
+[WARNING] 11:09:01: Log file was not present, using default name
+[ INFO  ] 11:09:01: "text.txt" doesn't exist
+[WARNING] [11:10:14]: Log file was not present, using default name
+[ INFO  ] [11:10:14]: "text.txt" doesn't exist
+[WARNING] [11:12:47]: Log file was not present, using default name
+[ ERROR ] [11:12:47]: "text.txt" doesn't exist
+[WARNING] [11:17:31]: Log file was not present, using default name
+[ ERROR ] [11:17:31]: "text.txt" doesn't exist
+[WARNING] [11:22:00]: Log file was not present, using default name
+[ ERROR ] [11:22:00]: "text.txt" doesn't exist
+[WARNING] [11:25:21]: Log file was not present, using default name
+[ ERROR ] [11:25:21]: "text.txt" doesn't exist
+[WARNING] [11:25:49]: Log file was not present, using default name
+[ ERROR ] [11:25:49]: "text.txt" doesn't exist
+[WARNING] [11:26:02]: Log file was not present, using default name
+[ ERROR ] [11:26:02]: "text.txt" doesn't exist
+[WARNING] [11:27:18]: Log file was not present, using default name
+[ ERROR ] [11:27:18]: "text.txt" doesn't exist
+[WARNING] [11:27:54]: Log file was not present, using default name
+[ ERROR ] [11:27:54]: "text.txt" doesn't exist
+[WARNING] [11:28:37]: Log file was not present, using default name
+[ ERROR ] [11:28:37]: "text.txt" doesn't exist
+[WARNING] [11:28:48]: Log file was not present, using default name
+[ ERROR ] [11:28:48]: "text.txt" doesn't exist
+[WARNING] [11:29:47]: Log file was not present, using default name
+[ ERROR ] [11:29:47]: "text.txt" doesn't exist
+[WARNING] [11:30:38]: Log file was not present, using default name
+[ ERROR ] [11:30:38]: "text.txt" doesn't exist
+[WARNING] [11:32:09]: Log file was not present, using default name
+[ ERROR ] [11:32:09]: "text.txt" doesn't exist
+[WARNING] [11:33:14]: Log file was not present, using default name
+[ ERROR ] [11:33:14]: "text.txt" doesn't exist

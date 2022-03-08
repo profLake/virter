@@ -11,7 +11,6 @@ if [[ -z $1 ]]; then
     exit 1
 fi
 source ~/.bashrc
-####project=$project
 project=$1
 work_dir=$project/src/
 make_target=$2

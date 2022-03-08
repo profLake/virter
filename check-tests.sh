@@ -33,7 +33,7 @@ for program in $project/build/*; do
         expect=$(sed -n "$((id + 1)),$ p;s/.$//" $file_text)
 
         dir_saved2=$(pwd)
-        cd $project/build/
+        cd $project/
         output=$(echo $input | $project/build/$program_name)
         cd $dir_saved2
     
@@ -55,6 +55,11 @@ for program in $project/build/*; do
         else
            echo "NO"
         fi
+
+        dir_saved=$(pwd)
+        cd $project
+        git checkout ~/T14D23-0/datasets/door_state_1
+        cd $dir_saved
     done
 
     rm ./x*
